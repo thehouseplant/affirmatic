@@ -23,6 +23,15 @@ fn main() -> rusqlite::Result<()> {
         Some(("list", _)) => {
             db::list_affirmations(&conn)?;
         }
+        Some(("delete", sub_m)) => {
+            let id = sub_m
+                .get_one::<String>("id")
+                .expect("ID is required")
+                .parse::<i32>()
+                .expect("ID must be an integer");
+            db::delete_affirmation(&conn, id)?;
+            println!("Deleted affirmation with ID {}.", id);
+        }
         _ => unreachable!(),
     }
 

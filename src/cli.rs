@@ -19,4 +19,11 @@ pub fn build_cli() -> Command {
                 ),
         )
         .subcommand(Command::new("list").about("List all of your affirmations"))
+        .subcommand(
+            Command::new("delete").about("Delete an affirmation").arg(
+                Arg::new("id")
+                    .required(true)
+                    .help("ID of the affirmation to delete"),
+            ),
+        )
 }

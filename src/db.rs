@@ -40,3 +40,15 @@ pub fn list_affirmations(conn: &Connection) -> Result<()> {
 
     Ok(())
 }
+
+pub fn delete_affirmation(conn: &Connection, id: i32) -> Result<()> {
+    let affected_rows = conn.execute("DELETE FROM affirmations WHERE id = ?1", params![id])?;
+
+    if affected_rows == 0 {
+        println!("No record found with ID {}", id);
+    } else {
+        println!("Affirmation with ID {} deleted successfully.", id);
+    }
+
+    Ok(())
+}
