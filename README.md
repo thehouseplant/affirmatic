@@ -27,6 +27,9 @@ cargo build --release
 # List all possible commands
 affirmator help
 
+# Initialize new affirmations database
+affirmator init
+
 # Add a new affirmation
 affirmator add "Title" "Description"
 

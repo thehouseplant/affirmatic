@@ -12,6 +12,10 @@ fn main() -> rusqlite::Result<()> {
     let conn = Connection::open("affirmations.db")?;
 
     match matches.subcommand() {
+        Some(("init", _)) => {
+            db::initialize(&conn)?;
+            println!("New affirmations database initialized");
+        }
         Some(("add", sub_m)) => {
             let title = sub_m.get_one::<String>("title").expect("Title is required");
             let description = sub_m

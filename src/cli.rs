@@ -4,6 +4,7 @@ pub fn build_cli() -> Command {
     Command::new("affirmator")
         .version("0.3.0")
         .author("Sean Collins <sean.collins@outlook.com")
+        .subcommand(Command::new("init").about("Initialize a new affirmations database"))
         .subcommand(
             Command::new("add")
                 .about("Add a new affirmation")

@@ -1,7 +1,7 @@
 use crate::models::Affirmation;
 use rusqlite::{params, Connection, Result};
 
-pub fn add_affirmation(conn: &Connection, title: &str, description: &str) -> Result<()> {
+pub fn initialize(conn: &Connection) -> Result<()> {
     conn.execute(
         "CREATE TABLE IF NOT EXISTS affirmations (
             id          INTEGER PRIMARY KEY,
@@ -11,6 +11,10 @@ pub fn add_affirmation(conn: &Connection, title: &str, description: &str) -> Res
         [],
     )?;
 
+    Ok(())
+}
+
+pub fn add_affirmation(conn: &Connection, title: &str, description: &str) -> Result<()> {
     conn.execute(
         "INSERT INTO affirmations (title, description) VALUES (?1, ?2)",
         params![title, description],
