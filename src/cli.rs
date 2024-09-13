@@ -1,6 +1,6 @@
 use clap::{Arg, Command};
 
-pub fn build_cli() -> Command<'static> {
+pub fn build_cli() -> Command {
     Command::new("affirmator")
         .version("0.1.0")
         .author("Sean Collins <sean.collins@outlook.com")
