@@ -18,3 +18,25 @@ pub fn add_affirmation(conn: &Connection, title: &str, description: &str) -> Res
 
     Ok(())
 }
+
+pub fn list_affirmations(conn: &Connection) -> Result<()> {
+    let mut stmt = conn.prepare("SELECT id, title, description FROM affirmations")?;
+    let affirmation_iter = stmt.query_map([], |row| {
+        Ok(Affirmation {
+            id: row.get(0)?,
+            title: row.get(1)?,
+            description: row.get(2)?,
+        })
+    })?;
+
+    println("ID | Title | Description");
+    for affirmation in affirmation_iter {
+        let affirmation = affirmation?;
+        println!(
+            "{} | {} | {}",
+            affirmation.id, affirmation.title, affirmation.description
+        );
+    }
+
+    Ok(())
+}
