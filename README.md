@@ -32,4 +32,10 @@ affirmator add "Title" "Description"
 
 # List all affirmations
 affirmator list
+
+# Delete an affirmation
+affirmator delete [id]
+
+# Clear all affirmations
+affirmator clear
 ```
