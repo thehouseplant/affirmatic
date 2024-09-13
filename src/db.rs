@@ -52,3 +52,9 @@ pub fn delete_affirmation(conn: &Connection, id: i32) -> Result<()> {
 
     Ok(())
 }
+
+pub fn clear_affirmations(conn: &Connection) -> Result<()> {
+    conn.execute("DELETE FROM affirmations", params![])?;
+
+    Ok(())
+}

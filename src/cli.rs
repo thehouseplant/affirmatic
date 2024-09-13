@@ -26,4 +26,5 @@ pub fn build_cli() -> Command {
                     .help("ID of the affirmation to delete"),
             ),
         )
+        .subcommand(Command::new("clear").about("Clear out all affirmations"))
 }

@@ -32,6 +32,9 @@ fn main() -> rusqlite::Result<()> {
             db::delete_affirmation(&conn, id)?;
             println!("Deleted affirmation with ID {}.", id);
         }
+        Some(("clear", _)) => {
+            db::clear_affirmations(&conn)?;
+        }
         _ => unreachable!(),
     }
 
