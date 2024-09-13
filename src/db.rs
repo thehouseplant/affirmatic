@@ -29,7 +29,7 @@ pub fn list_affirmations(conn: &Connection) -> Result<()> {
         })
     })?;
 
-    println("ID | Title | Description");
+    println!("ID | Title | Description");
     for affirmation in affirmation_iter {
         let affirmation = affirmation?;
         println!(
