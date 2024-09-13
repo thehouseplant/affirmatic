@@ -2,7 +2,7 @@ use clap::{Arg, Command};
 
 pub fn build_cli() -> Command {
     Command::new("affirmator")
-        .version("0.3.0")
+        .version("0.3.1")
         .author("Sean Collins <sean.collins@outlook.com")
         .subcommand(Command::new("init").about("Initialize a new affirmations database"))
         .subcommand(
