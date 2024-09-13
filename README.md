@@ -4,7 +4,7 @@ A little command line utility to store affirmation and positive thoughts. Think 
 
 ## Requirements
 
-- [Rust] (https://www.rust-lang.org/)
+- [Rust](https://www.rust-lang.org/)
 
 ## Installation
 
